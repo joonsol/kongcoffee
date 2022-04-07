@@ -1,6 +1,14 @@
 <template>
   <header>
-    header
+    <h1>
+      <router-link to="/product">logo</router-link>
+
+    </h1>
+    <nav>
+
+      <router-link to="/product">product</router-link>
+      <router-link to="/company">company</router-link>
+    </nav>
   </header>
 </template>
 <script>
