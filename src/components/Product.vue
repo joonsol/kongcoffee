@@ -5,7 +5,7 @@
       <h3 @click="modalOpen(i)">{{c.title}}</h3>
       <img @click="modalOpen(i)" :src="c.image" :alt="c.id">
     </div>
-    <Modal  :modal="modal" :coffee="coffees" :crt="crt"></Modal>
+    <Modal :modal="modal" :coffee="coffees" :crt="crt" @closeModal="modalClose"></Modal>
   </div>
 </template>
 <script>
@@ -15,14 +15,17 @@
     data() {
       return {
         modal: false,
-        crt:0,
+        crt: 0,
         coffees: coffee
       }
     },
     methods: {
       modalOpen(i) {
         this.modal = true;
-        this.crt=i
+        this.crt = i
+      },
+      modalClose() {
+        this.modal = false;
       }
     },
     components: {

@@ -1,11 +1,11 @@
 <template lang="">
   <div class="modal_Container" v-if="modal">
     <div class="modal">
-     
+
       <h4>{{coffee[crt].title}}</h4>
       <img :src="coffee[crt].image" :alt="coffee[crt].id">
       <p>{{coffee[crt].text}}</p>
-      <button class="close">X</button>
+      <button @click="mClose" class="close">X</button>
     </div>
   </div>
 </template>
@@ -16,6 +16,13 @@
       crt: Number,
       modal: Boolean
     },
+    methods: {
+      mClose() {
+        this.$emit('closeModal')
+       
+      }
+    },
+
   }
 </script>
 <style>
@@ -79,5 +86,4 @@
     margin-top: 3rem;
     line-height: 3rem;
   }
-
 </style>
