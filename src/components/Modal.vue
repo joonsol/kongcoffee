@@ -1,13 +1,21 @@
 <template lang="">
-  <div class="modal_Container">
+  <div class="modal_Container" v-if="modal">
     <div class="modal">
-      <h3>상세페이지</h3>
+     
+      <h4>{{coffee[crt].title}}</h4>
+      <img :src="coffee[crt].image" :alt="coffee[crt].id">
+      <p>{{coffee[crt].text}}</p>
+      <button class="close">X</button>
     </div>
   </div>
 </template>
 <script>
   export default {
-
+    props: {
+      coffee: Array,
+      crt: Number,
+      modal: Boolean
+    },
   }
 </script>
 <style>
@@ -69,6 +77,7 @@
     padding: 0 1rem;
     display: inline-block;
     margin-top: 3rem;
-    line-height: 3rem;}
-    
+    line-height: 3rem;
+  }
+
 </style>

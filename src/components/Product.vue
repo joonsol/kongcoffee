@@ -2,10 +2,10 @@
   <div id="container">
     <h2>coffee list</h2>
     <div v-for="(c,i) in coffees" :key="i" class="content">
-      <h3 @click="modalOpen">{{c.title}}</h3>
-      <img @click="modalOpen" :src="c.image" :alt="c.id">
+      <h3 @click="modalOpen(i)">{{c.title}}</h3>
+      <img @click="modalOpen(i)" :src="c.image" :alt="c.id">
     </div>
-    <Modal v-if="modal"></Modal>
+    <Modal  :modal="modal" :coffee="coffees" :crt="crt"></Modal>
   </div>
 </template>
 <script>
@@ -15,12 +15,14 @@
     data() {
       return {
         modal: false,
+        crt:0,
         coffees: coffee
       }
     },
     methods: {
-      modalOpen() {
-        this.modal = true
+      modalOpen(i) {
+        this.modal = true;
+        this.crt=i
       }
     },
     components: {
